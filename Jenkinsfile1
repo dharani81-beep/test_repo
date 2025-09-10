@@ -1,0 +1,16 @@
+pipeline {
+  agent any
+  stages {
+    stage ('checkout the code') {
+      steps {
+        git branch: 'main', url: 'https://github.com/dharani81-beep/test_repo.git'
+      }
+      
+    }
+    stage ('Build') {
+      steps {
+        bat 'mvn clean package'
+      }
+    }
+  }
+}
